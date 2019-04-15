@@ -8,6 +8,21 @@ import org.hibernate.Transaction;
 import datos.Cliente;
 
 public class ClienteDao {
+	private static ClienteDao dao;
+	//
+	protected ClienteDao() {
+		this.inicializar();
+	}
+	
+	public static ClienteDao getIntanciaClienteDao() {
+		if(dao==null) {
+			dao=new ClienteDao();
+		}
+		return dao;
+	}
+	
+	private void inicializar() {}
+	
 	private static Session session;
 	private Transaction tx;
 

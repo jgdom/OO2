@@ -8,7 +8,7 @@ public class TestModificarCliente {
 
 	public static void main(String[] args)throws Exception{
 		// TODO Auto-generated method stub
-				ClienteABM abm = new ClienteABM();
+		ClienteABM abm = ClienteABM.getIntanciaClienteABM();
 				long id=4;
 				// traer el obj a modificar
 				Cliente c=abm.traer(id);

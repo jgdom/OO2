@@ -6,6 +6,20 @@ import org.hibernate.Transaction;
 import datos.Contacto;
 
 public class ContactoDao {
+	private static ContactoDao dao;
+	//
+	protected ContactoDao() {
+		this.inicializar();
+	}
+	
+	public static ContactoDao getIntanciaContactoDao() {
+		if(dao==null) {
+			dao=new ContactoDao();
+		}
+		return dao;
+	}
+	private void inicializar() {}
+	
 	private static Session session;
 	private Transaction tx;
 

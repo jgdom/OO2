@@ -6,12 +6,12 @@ import negocio.ClienteABM;
 public class TestAgregarCliente {
 	public static void main(String[] args)  {
 		
-		String apellido = "tu apellido";
-		String nombre = "tu nombre";
+		String apellido = "tu apellido juan";
+		String nombre = "tu nombre juan";
 		int documento = 35000000;
 		// tu fecha de nacimiento
 		LocalDate fechaDeNacimiento = LocalDate.now();
-		ClienteABM abm = new ClienteABM();
+		ClienteABM abm = ClienteABM.getIntanciaClienteABM();
 	
 		try {
 			long ultimoIdCliente = abm.agregar(apellido, nombre, documento,

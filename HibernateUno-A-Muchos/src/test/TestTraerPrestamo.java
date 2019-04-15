@@ -8,7 +8,7 @@ import negocio.PrestamoABM;
 
 public class TestTraerPrestamo {
 	public static void main(String[] args) {
-		PrestamoABM prestamoABM = new PrestamoABM();
+		PrestamoABM prestamoABM = PrestamoABM.getIntanciaPrestamoABM();
 		long idPrestamo = 1;
 		System.out.println("\n---> TraerPrestamo idPrestamo=" + idPrestamo + "\n\n");
 		Prestamo p = prestamoABM.traerPrestamo(idPrestamo);
@@ -16,9 +16,9 @@ public class TestTraerPrestamo {
 		
 //implementar Si este cliente no tiene prestamos otorgados imprima el mensaje
 		
-		ClienteABM clienteABM = new ClienteABM();
+		ClienteABM abm = ClienteABM.getIntanciaClienteABM();
 		int dni = 14000000;
-		Cliente c = clienteABM.traer(dni);
+		Cliente c = abm.traer(dni);
 		
 		System.out.println("\n---> TraerPrestamos del Cliente=" + c + "\n\n");
 		List<Prestamo> prestamos = prestamoABM.traerPrestamo(c);

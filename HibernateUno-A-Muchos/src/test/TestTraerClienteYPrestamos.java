@@ -8,9 +8,9 @@ public class TestTraerClienteYPrestamos {
 
 	public static void main(String[] args) {
 		long idCliente = 1;
-		ClienteABM cliAbm = new ClienteABM();
+		ClienteABM abm = ClienteABM.getIntanciaClienteABM();
 		
-		Cliente c = cliAbm.traerClienteYPrestamos(idCliente);
+		Cliente c = abm.traerClienteYPrestamos(idCliente);
 		System.out.println("\n---> Traer Cliente y Prestamos idCliente=" + idCliente);
 		System.out.println("\n" + c);
 		

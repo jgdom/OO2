@@ -8,6 +8,21 @@ import datos.Cliente;
 import datos.Prestamo;
 
 public class PrestamoDao {
+	private static PrestamoDao dao;
+	//
+	protected PrestamoDao() {
+		this.inicializar();
+	}
+	
+	public static PrestamoDao getIntanciaPrestamoDao() {
+		if(dao==null) {
+			dao=new PrestamoDao();
+		}
+		return dao;
+	}
+	
+	private void inicializar() {}
+	
 	private static Session session;
 	private Transaction tx;
 
