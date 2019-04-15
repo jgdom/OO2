@@ -4,25 +4,28 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import datos.Cliente;
 import datos.Prestamo;
 
 public class PrestamoDao {
 	private static PrestamoDao dao;
+
 	//
 	protected PrestamoDao() {
 		this.inicializar();
 	}
-	
+
 	public static PrestamoDao getIntanciaPrestamoDao() {
-		if(dao==null) {
-			dao=new PrestamoDao();
+		if (dao == null) {
+			dao = new PrestamoDao();
 		}
 		return dao;
 	}
-	
-	private void inicializar() {}
-	
+
+	private void inicializar() {
+	}
+
 	private static Session session;
 	private Transaction tx;
 
@@ -35,6 +38,7 @@ public class PrestamoDao {
 		tx.rollback();
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
+
 	public int agregar(Prestamo objeto) {
 		int id = 0;
 		try {
@@ -75,7 +79,7 @@ public class PrestamoDao {
 			session.close();
 		}
 	}
-	
+
 	public Prestamo traer(long idPrestamo) throws HibernateException {
 		Prestamo obj = null;
 		try {

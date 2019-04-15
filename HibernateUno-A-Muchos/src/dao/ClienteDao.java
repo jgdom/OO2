@@ -9,20 +9,22 @@ import datos.Cliente;
 
 public class ClienteDao {
 	private static ClienteDao dao;
+
 	//
 	protected ClienteDao() {
 		this.inicializar();
 	}
-	
+
 	public static ClienteDao getIntanciaClienteDao() {
-		if(dao==null) {
-			dao=new ClienteDao();
+		if (dao == null) {
+			dao = new ClienteDao();
 		}
 		return dao;
 	}
-	
-	private void inicializar() {}
-	
+
+	private void inicializar() {
+	}
+
 	private static Session session;
 	private Transaction tx;
 
@@ -77,17 +79,17 @@ public class ClienteDao {
 		}
 	}
 
-public Cliente traer(long idCliente) throws HibernateException {
-Cliente objeto = null;
-try {
-iniciaOperacion();
-objeto = (Cliente) session.get(Cliente.class, idCliente);
-} finally {
+	public Cliente traer(long idCliente) throws HibernateException {
+		Cliente objeto = null;
+		try {
+			iniciaOperacion();
+			objeto = (Cliente) session.get(Cliente.class, idCliente);
+		} finally {
 
-session.close();
-}
-return objeto;
-}
+			session.close();
+		}
+		return objeto;
+	}
 
 	public Cliente traer(int dni) throws HibernateException {
 		Cliente objeto = null;
@@ -100,7 +102,7 @@ return objeto;
 		return objeto;
 	}
 
-@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public List<Cliente> traer() throws HibernateException {
 		List<Cliente> lista = null;
 		try {
@@ -124,6 +126,5 @@ return objeto;
 		}
 		return objeto;
 	}
-	
 
 }

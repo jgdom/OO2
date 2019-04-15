@@ -1,4 +1,5 @@
 package test;
+
 import dao.HibernateUtil;
 import negocio.ClienteABM;
 
@@ -9,10 +10,11 @@ public class EliminarCliente {
 		ClienteABM abm = ClienteABM.getIntanciaClienteABM();
 		try {
 			abm.eliminar(1);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}finally {
-			HibernateUtil.getSessionFactory().close();		}
+		} finally {
+			HibernateUtil.getSessionFactory().close();
+		}
 	}
 
 }
