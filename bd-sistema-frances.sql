@@ -69,6 +69,14 @@ CREATE TABLE `prestamo` (
 -- Dumping data for table `prestamo`
 --
 
+
+LOCK TABLES `prestamo` WRITE;
+/*!40000 ALTER TABLE `prestamo` DISABLE KEYS */;
+INSERT INTO `prestamo` VALUES (1,'2016-01-08 00:00:00',5000,25,10,1),(2,'2015-11-02 00:00:00',10000,15,15,1);
+/*!40000 ALTER TABLE `prestamo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+drop table if exists `cuota`;
 create table `cuota`(
 	`nroCuota` int not null auto_increment,
     `fechaVencimiento` datetime not null,
@@ -79,14 +87,14 @@ create table `cuota`(
     `deuda` double not null,
     `cancelada` bit(1),
     `fechaDePago` datetime not null,
-    `punitorios` double not null
+    `punitorios` double not null,
+    `idPrestamo` int not null,
+    primary key(nroCuota),
+	KEY `fkPrestamo_idx` (`idPrestamo`),
+	CONSTRAINT `fkPrestamo` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamo` (`idPrestamo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
-LOCK TABLES `prestamo` WRITE;
-/*!40000 ALTER TABLE `prestamo` DISABLE KEYS */;
-INSERT INTO `prestamo` VALUES (1,'2016-01-08 00:00:00',5000,25,10,1),(2,'2015-11-02 00:00:00',10000,15,15,1);
-/*!40000 ALTER TABLE `prestamo` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
