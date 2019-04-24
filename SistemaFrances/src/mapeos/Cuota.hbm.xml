@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="datos.Cuota" table="cuota">
-		<id column="nroCuota" name="nroCuota">
-			<generator class="identity" />
-		</id>
-		<property column="fechaVencimiento" name="fechaVencimiento" type="LocalDate"/>
-		<property column="saldoPendiente" name="saldoPendiente" type="double"/>
-		<property column="amortizacion" name="amortizacion" type="double"/>
-		<property column="interesCuota" name="interesCuota" type="double"/>
-		<property column="cuota" name="cuota" type="double"/>
-		<property column="deuda" name="deuda" type="double"/>
-		<property column="cancelada" name="cancelada" type="boolean"/>
-		<property column="fechaDePago" name="fechaDePago" type="LocalDate"/>
-		<property column="punitorios" name="punitorios" type="double"/>
-		<many-to-one name="prestamo" class="datos.Prestamo"
-			column="idPrestamo" not-null="true" />
-		
-	</class>
+<class name="datos.Cuota" table="cuota">
+  <id column="idCuota" name="idCuota">
+  <generator class="identity"></generator>
+  </id>
+<property name="nroCuota" column="nroCuota" type="int"></property>
+<property name="fechaVencimiento" column="fechaVencimiento" type="LocalDate"></property>
+<property name="saldoPendiente" column="saldoPendiente" type="double"></property>
+<property name="amortizacion" column="amortizacion" type="double"></property>
+<property name="interesCuota" column="interesCuota" type="double"></property>
+<property name="cuota" column="cuota" type="double"></property>
+<property name="deuda" column="deuda" type="double"></property>
+<property name="cancelada" column="cancelada" type="boolean"></property>
+<property name="fechaDePago" column="fechaDePago" type="LocalDate"></property>
+<property name="punitorios" column="punitorios" type="double"></property>
+</class>
 </hibernate-mapping>

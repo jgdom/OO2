@@ -1,11 +1,11 @@
 package datos;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
-import funciones.Funciones;
-
 public class Prestamo {
+	
 	private long idPrestamo;
 	private LocalDate fecha;
 	private double monto;
@@ -14,20 +14,7 @@ public class Prestamo {
 	private Cliente cliente;
 	private Set<Cuota> cuotas;
 	
-	public Prestamo() {
-	}
-
-	public Prestamo(long idPrestamo, LocalDate fecha, double monto, double interes, int cantCuotas, Cliente cliente,
-			Set<Cuota> cuotas) {
-		super();
-		this.idPrestamo = idPrestamo;
-		this.fecha = fecha;
-		this.monto = monto;
-		this.interes = interes;
-		this.cantCuotas = cantCuotas;
-		this.cliente = cliente;
-		this.cuotas = cuotas;
-	}
+	public Prestamo() {}
 
 	public Prestamo(LocalDate fecha, double monto, double interes, int cantCuotas, Cliente cliente) {
 		super();
@@ -36,6 +23,16 @@ public class Prestamo {
 		this.interes = interes;
 		this.cantCuotas = cantCuotas;
 		this.cliente = cliente;
+		this.cuotas = this.setCuotas();
+	}
+	
+	protected Set<Cuota> setCuotas(){
+		Set<Cuota> objeto = new HashSet<Cuota>();
+		for(int i=0; i<this.cantCuotas;i++) {
+			Cuota c = new Cuota(i+1,fecha,monto);
+			objeto.add(c);
+		}
+		return objeto;
 	}
 
 	public long getIdPrestamo() {
@@ -86,17 +83,19 @@ public class Prestamo {
 		this.cliente = cliente;
 	}
 
-	public Set<Cuota> getCuotas() {
-		return cuotas;
-	}
+    public String toString() {
+    	String prestamo = "Prestamo:$ " + monto + "\nFecha: " + fecha + "\nInteres: " + interes + "\nCant. de Cuotas: " + cantCuotas;
+    	return prestamo;
+    }
+	
+    public Set<Cuota> getCuotas(){
+    	return cuotas;
+    }
+    
+    public void setCuotas(Set<Cuota> cuotas) {
+    	this.cuotas = cuotas;
+    }
+   
+	
 
-	public void setCuotas(Set<Cuota> cuotas) {
-		this.cuotas = cuotas;
-	}
-
-	public String toString() {
-		String prestamo = "Prestamo: $ " + monto + "\nFecha: " + Funciones.traerFechaCorta(fecha) + "\nInteres: "
-				+ interes + "\nCant.de Cuotas: " + cantCuotas;
-		return prestamo;
-	}
 }

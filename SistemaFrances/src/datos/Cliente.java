@@ -3,19 +3,17 @@ package datos;
 import java.time.LocalDate;
 import java.util.Set;
 
-import funciones.Funciones;
-
 public class Cliente {
+	
 	private long idCliente;
 	private String apellido;
 	private String nombre;
 	private int dni;
 	private LocalDate fechaDeNacimiento;
 	private boolean baja;
-	private Set<Prestamo> prestamos; // ¿Porque utilizamos Set y no List?
-
-	public Cliente() {
-	}
+	private Set<Prestamo> prestamos;//se usa Set
+	
+	public Cliente() {}
 
 	public Cliente(String apellido, String nombre, int dni, LocalDate fechaDeNacimiento) {
 		super();
@@ -74,16 +72,20 @@ public class Cliente {
 		this.baja = baja;
 	}
 
+	@Override
 	public String toString() {
-		return (idCliente + " " + apellido + " " + nombre + " DNI: " + dni + " F.de Nacimiento:"
-				+ Funciones.traerFechaCorta(fechaDeNacimiento) + " " + baja);
+		return "Cliente [idCliente=" + idCliente + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + "]";
 	}
-
-	public Set<Prestamo> getPrestamos() {
+	
+	public Set<Prestamo> getPrestamos(){
 		return prestamos;
 	}
-
+	
 	public void setPrestamos(Set<Prestamo> prestamos) {
 		this.prestamos = prestamos;
 	}
+	
+	
+
 }

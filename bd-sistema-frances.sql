@@ -78,18 +78,19 @@ UNLOCK TABLES;
 
 drop table if exists `cuota`;
 create table `cuota`(
-	`nroCuota` int not null auto_increment,
-    `fechaVencimiento` datetime not null,
-    `saldoPendiente` double not null,
-    `amortizacion` double not null,
-    `interesCuota` double not null,
-    `cuota` double not null,
-    `deuda` double not null,
+	`idCuota` int not null auto_increment,
+    `nroCuota` int not null,
+    `fechaVencimiento` datetime,
+    `saldoPendiente` double,
+    `amortizacion` double,
+    `interesCuota` double,
+    `cuota` double,
+    `deuda` double,
     `cancelada` bit(1),
-    `fechaDePago` datetime not null,
-    `punitorios` double not null,
-    `idPrestamo` int not null,
-    primary key(nroCuota),
+    `fechaDePago` datetime,
+    `punitorios` double,
+    `idPrestamo` int,
+    primary key(idCuota),
 	KEY `fkPrestamo_idx` (`idPrestamo`),
 	CONSTRAINT `fkPrestamo` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamo` (`idPrestamo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

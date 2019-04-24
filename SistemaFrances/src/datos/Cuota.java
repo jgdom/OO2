@@ -2,9 +2,9 @@ package datos;
 
 import java.time.LocalDate;
 
-import funciones.Funciones;
-
 public class Cuota {
+	
+	private long idCuota;
 	private int nroCuota;
 	private LocalDate fechaVencimiento;
 	private double saldoPendiente;
@@ -20,8 +20,8 @@ public class Cuota {
 	public Cuota() {}
 
 	public Cuota(int nroCuota, LocalDate fechaVencimiento, double saldoPendiente, double amortizacion,
-			double interesCuota, double cuota, double deuda, boolean cancelada, LocalDate fechaDePago,
-			double punitorios, Prestamo prestamo) {
+			double interesCuota, double cuota, double deuda, LocalDate fechaDePago, double punitorios,
+			Prestamo prestamo) {
 		super();
 		this.nroCuota = nroCuota;
 		this.fechaVencimiento = fechaVencimiento;
@@ -30,26 +30,23 @@ public class Cuota {
 		this.interesCuota = interesCuota;
 		this.cuota = cuota;
 		this.deuda = deuda;
-		this.cancelada = cancelada;
+		this.cancelada = false;
 		this.fechaDePago = fechaDePago;
 		this.punitorios = punitorios;
 		this.prestamo = prestamo;
 	}
 
-	public Cuota(int nroCuota, LocalDate fechaVencimiento, double saldoPendiente, double amortizacion,
-			double interesCuota, double cuota, double deuda, boolean cancelada, LocalDate fechaDePago,
-			double punitorios) {
-		super();
-		this.nroCuota = nroCuota;
-		this.fechaVencimiento = fechaVencimiento;
-		this.saldoPendiente = saldoPendiente;
-		this.amortizacion = amortizacion;
-		this.interesCuota = interesCuota;
-		this.cuota = cuota;
-		this.deuda = deuda;
-		this.cancelada = cancelada;
-		this.fechaDePago = fechaDePago;
-		this.punitorios = punitorios;
+	public Cuota(int i, LocalDate fecha, double monto) {
+		// TODO Auto-generated constructor stub
+		this.nroCuota= i;
+	}
+
+	public long getIdCuota() {
+		return idCuota;
+	}
+
+	protected void setIdCuota(long idCuota) {
+		this.idCuota = idCuota;
 	}
 
 	public int getNroCuota() {
@@ -142,11 +139,32 @@ public class Cuota {
 
 	@Override
 	public String toString() {
-		return "Cuota [nroCuota=" + nroCuota + ", fechaVencimiento=" + Funciones.traerFechaCorta(fechaVencimiento) + ", saldoPendiente="
-				+ saldoPendiente + ", amortizacion=" + amortizacion + ", interesCuota=" + interesCuota + ", cuota="
-				+ cuota + ", deuda=" + deuda + ", cancelada=" + cancelada + ", fechaDePago=" + Funciones.traerFechaCorta(fechaDePago)
-				+ ", punitorios=" + punitorios + "]";
+		return "Cuota [idCuota=" + idCuota + ", nroCuota=" + nroCuota + ", fechaVencimiento=" + fechaVencimiento.getYear()
+				+ ", saldoPendiente=" + saldoPendiente + ", amortizacion=" + amortizacion + ", interesCuota="
+				+ interesCuota + ", cuota=" + cuota + ", deuda=" + deuda + ", cancelada=" + cancelada + ", fechaDePago="
+				+ fechaDePago.getYear() + ", punitorios=" + punitorios + "]";
 	}
+
+	
+
+	
+
+	
+
 	
 	
+	
+
+	
+
+
+	
+	
+
+	
+	
+	
+	
+	
+
 }
