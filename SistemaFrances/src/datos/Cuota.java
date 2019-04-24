@@ -36,9 +36,10 @@ public class Cuota {
 		this.prestamo = prestamo;
 	}
 
-	public Cuota(int i, LocalDate fecha, double monto) {
+	public Cuota(int i, LocalDate fecha, double monto, Prestamo prestamo) {
 		// TODO Auto-generated constructor stub
 		this.nroCuota= i;
+		this.prestamo=prestamo;
 	}
 
 	public long getIdCuota() {

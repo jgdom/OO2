@@ -28,8 +28,9 @@ public class Prestamo {
 	
 	protected Set<Cuota> setCuotas(){
 		Set<Cuota> objeto = new HashSet<Cuota>();
+		
 		for(int i=0; i<this.cantCuotas;i++) {
-			Cuota c = new Cuota(i+1,fecha,monto);
+			Cuota c = new Cuota(i+1,fecha,monto,this);
 			objeto.add(c);
 		}
 		return objeto;

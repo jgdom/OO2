@@ -13,7 +13,7 @@ public class TestAgregarPrestamo {
 		try {
 		//System.out.println(abmp.traerPrestamo(1));
 			//System.out.println(abmp.traerPrestamo(abmc.traerCliente(35639606)));
-			abmp.agregarPrestamo(LocalDate.of(2019, 03, 30), 15000, 10, 5, abmc.traerCliente((long)2));
+			abmp.agregarPrestamo(LocalDate.of(2019, 03, 30), 15000, 10,5, abmc.traerCliente((long)2));
 			System.out.println(abmp.traerPrestamo(abmc.traerCliente(10000000)));
 		}
 		catch(Exception e) {

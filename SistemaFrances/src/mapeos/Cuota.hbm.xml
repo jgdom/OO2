@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<class name="datos.Cuota" table="cuota">
-  <id column="idCuota" name="idCuota">
-  <generator class="identity"></generator>
-  </id>
-<property name="nroCuota" column="nroCuota" type="int"></property>
-<property name="fechaVencimiento" column="fechaVencimiento" type="LocalDate"></property>
-<property name="saldoPendiente" column="saldoPendiente" type="double"></property>
-<property name="amortizacion" column="amortizacion" type="double"></property>
-<property name="interesCuota" column="interesCuota" type="double"></property>
-<property name="cuota" column="cuota" type="double"></property>
-<property name="deuda" column="deuda" type="double"></property>
-<property name="cancelada" column="cancelada" type="boolean"></property>
-<property name="fechaDePago" column="fechaDePago" type="LocalDate"></property>
-<property name="punitorios" column="punitorios" type="double"></property>
-</class>
+	<class name="datos.Cuota" table="cuota">
+		<id column="idCuota" name="idCuota">
+			<generator class="identity"></generator>
+		</id>
+		<property name="nroCuota" column="nroCuota" type="int"></property>
+		<property name="fechaVencimiento" column="fechaVencimiento"
+			type="LocalDate"></property>
+		<property name="saldoPendiente" column="saldoPendiente"
+			type="double"></property>
+		<property name="amortizacion" column="amortizacion"
+			type="double"></property>
+		<property name="interesCuota" column="interesCuota"
+			type="double"></property>
+		<property name="cuota" column="cuota" type="double"></property>
+		<property name="deuda" column="deuda" type="double"></property>
+		<property name="cancelada" column="cancelada" type="boolean"></property>
+		<property name="fechaDePago" column="fechaDePago"
+			type="LocalDate"></property>
+		<property name="punitorios" column="punitorios" type="double"></property>
+		<many-to-one name="prestamo" class="datos.Prestamo"
+			column="idPrestamo" not-null="true"></many-to-one>
+	</class>
 </hibernate-mapping>
