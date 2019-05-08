@@ -18,7 +18,7 @@
 				<TD><INPUT name="dni"></TD>
 			</TR>
 			<TR>
-				<TD><INPUT type="submit" value="Consultar"</TD>
+				<TD><INPUT type="submit" value="Consultar"></TD>
 			</TR>
 		</TABLE>
 	</FORM>

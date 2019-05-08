@@ -89,7 +89,7 @@ create table `cuota`(
     `cancelada` bit(1),
     `fechaDePago` datetime,
     `punitorios` double,
-    `idPrestamo` int not null,
+    `idPrestamo` int,
     primary key(idCuota),
 	KEY `fkPrestamo_idx` (`idPrestamo`),
 	CONSTRAINT `fkPrestamo` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamo` (`idPrestamo`) ON DELETE NO ACTION ON UPDATE NO ACTION

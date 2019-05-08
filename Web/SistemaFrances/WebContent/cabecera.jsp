@@ -5,10 +5,10 @@
 <TABLE border="0" width="100%">
 	<TR>
 		<TD align="left">
-			<IMG src="/SistemaFrances/images/LogoUnla.jpg">
+			<img src="/SistemaFrances/images/LogoUnla.jpg" width="5%" />
 		</TD>
 		<TD align="center">
-			<H1>Orientación a Objetos II</H1>
+			<H1>Orientación a Objetos II sss</H1>
 		</TD>
 	</TR>
 </TABLE>
