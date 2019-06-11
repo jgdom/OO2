@@ -5,7 +5,7 @@
 <TABLE border="0" width="100%">
 	<TR>
 		<TD align="left">
-			<img src="images/LogoUnla.jpg" width="5%" />
+			<img src="images/logo-unla.png" width="100%" />
 		</TD>
 		<TD align="center">
 			<H1>Orientación a Objetos II sss</H1>
